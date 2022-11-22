@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="QuanLyKhoVNPT">
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="QuanLyKhoVNPT.Module.BusinessObjects.VatTu">
+      <AppearanceRules>
+        <AppearanceRule Id="HidePhieuNhap" Criteria="[PhieuNhapKho] Is Null" />
+        <AppearanceRule Id="HidePhieuXuat" Criteria="[PhieuXuatKho] Is Null" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Quản lý Nhập - Xuất kho" Caption="📂 Quản lý Nhập - Xuất kho" />
+      <Item Id="Reports" Caption="🖨 Báo cáo">
+        <Items>
+          <Item Id="Dashboards" Visible="False" />
+          <Item Id="ReportsV2" Caption="Báo cáo" />
+        </Items>
+      </Item>
+      <Item Id="State Machine" Visible="False" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="22.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="22.1.6.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Kho_PhieuNhapKhos_ListView" AllowUnlink="False" AllowLink="False" AllowNew="False" AllowDelete="False" />
+    <ListView Id="Kho_PhieuXuatKhos_ListView" AllowUnlink="False" AllowNew="False" AllowDelete="False" />
+    <ListView Id="Kho_VatTus_ListView">
+      <Columns>
+        <ColumnInfo Id="SoLuongNhap" Index="-1" />
+        <ColumnInfo Id="SoLuongXuat" Index="-1" />
+        <ColumnInfo Id="SoLuongTonKho" Index="3" />
+        <ColumnInfo Id="Gia" Index="4" />
+        <ColumnInfo Id="NhomVatTu" Index="5" />
+        <ColumnInfo Id="MoTa" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="PhieuNhapKho_VatTus_ListView" AllowNew="True" AllowUnlink="False" AllowDelete="False" AllowLink="False">
+      <Columns>
+        <ColumnInfo Id="SoLuongTonKho" Index="-1" />
+        <ColumnInfo Id="SoLuongXuat" Index="-1" />
+        <ColumnInfo Id="Gia" Index="4" />
+        <ColumnInfo Id="NhomVatTu" Index="5" />
+        <ColumnInfo Id="Kho" Index="6" />
+        <ColumnInfo Id="MoTa" Index="7" />
+      </Columns>
+    </ListView>
+    <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="False" AllowLink="True" AllowUnlink="False" AllowDelete="False">
+      <Columns>
+        <ColumnInfo Id="SoLuongNhap" Index="-1" />
+        <ColumnInfo Id="SoLuongTonKho" Index="-1" />
+        <ColumnInfo Id="SoLuongXuat" Index="3" />
+        <ColumnInfo Id="Gia" Index="4" />
+        <ColumnInfo Id="NhomVatTu" Index="5" />
+        <ColumnInfo Id="Kho" Index="6" />
+        <ColumnInfo Id="MoTa" Index="7" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ThuKho_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="ThuKho" RelativeSize="100">
+              <LayoutGroup Id="ThuKho_col1" RelativeSize="33.225806451612904">
+                <LayoutItem Id="TenThuKho" RelativeSize="5.633802816901408" />
+                <LayoutItem Id="SoDienThoai" RelativeSize="4.225352112676056" />
+                <LayoutItem Id="Email" RelativeSize="90.14084507042253" />
+              </LayoutGroup>
+              <LayoutGroup Id="ThuKho_col2" Caption="ThuKho_col2" Direction="Horizontal" RelativeSize="66.7741935483871">
+                <LayoutGroup Id="Auto83ff3e93-af55-4f69-9147-05ead097b0a0" ShowCaption="False" Caption="" Index="0" RelativeSize="53.14009661835749" IsNewNode="True">
+                  <LayoutItem Id="DiaChi" ViewItem="DiaChi" Index="0" RelativeSize="5.633802816901408" IsNewNode="True" />
+                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="1" RelativeSize="94.36619718309859" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="HinhAnh" RelativeSize="46.85990338164251" />
+                <LayoutItem Id="DiaChi" Removed="True" />
+                <LayoutItem Id="MoTa" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="VatTu_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="VatTu" RelativeSize="100">
+              <LayoutGroup Id="VatTu_col1" RelativeSize="35.483870967741936">
+                <LayoutItem Id="MaVatTu" RelativeSize="5.167173252279635" />
+                <LayoutItem Id="TenVatTu" RelativeSize="3.6474164133738602" />
+                <LayoutItem Id="DoViTinh" RelativeSize="3.6474164133738602" />
+                <LayoutItem Id="SoLuongNhap" RelativeSize="3.6474164133738602" />
+                <LayoutItem Id="SoLuongXuat" RelativeSize="83.89057750759878" />
+              </LayoutGroup>
+              <LayoutGroup Id="VatTu_col2" Caption="VatTu_col2" Direction="Horizontal" RelativeSize="64.51612903225806">
+                <LayoutGroup Id="Auto3e39f30f-65f6-4e15-ab96-da9a05d53a75" ShowCaption="False" Caption="" Index="0" RelativeSize="53.857142857142854" IsNewNode="True">
+                  <LayoutItem Id="Gia" ViewItem="Gia" Index="0" RelativeSize="5.167173252279635" IsNewNode="True" />
+                  <LayoutItem Id="NhomVatTu" ViewItem="NhomVatTu" Index="1" RelativeSize="3.6474164133738602" IsNewNode="True" />
+                  <LayoutItem Id="Kho" ViewItem="Kho" Index="2" RelativeSize="3.6474164133738602" IsNewNode="True" />
+                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="3" RelativeSize="87.53799392097264" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="HinhAnh" Index="1" RelativeSize="46.142857142857146" />
+                <LayoutItem Id="Gia" Removed="True" />
+                <LayoutItem Id="Kho" Removed="True" />
+                <LayoutItem Id="MoTa" Removed="True" />
+                <LayoutItem Id="NhomVatTu" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="VatTu_ListView" AllowNew="False" />
+  </Views>
+</Application>
