@@ -34,6 +34,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             
         }
 
+        BoPhan boPhan;
         string maPhieuXuat;
 
         [XafDisplayName("Mã phiếu xuất")]
@@ -61,15 +62,15 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(NgayXuat), ref ngayXuat, value);
         }
         int tongSoLuongXuat;
-        [ModelDefault("AllowEdit","False")]
+        [ModelDefault("AllowEdit", "False")]
         [XafDisplayName("Tổng số lượng xuất")]
         public int TongSoLuongXuat
         {
             get
             {
-                if(!IsLoading && !IsSaving)
+                if (!IsLoading && !IsSaving)
                 {
-                    return VatTus.Sum(i=>i.SoLuongXuat);
+                    return VatTus.Sum(i => i.SoLuongXuat);
                 }
                 return 0;
             }
@@ -90,11 +91,19 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         }
         Kho kho;
         [XafDisplayName("Kho")]
+        [RuleRequiredField("Bắt buộc phải có PhieuXuatKho.Kho", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
         [Association("Kho-PhieuXuatKhos")]
         public Kho Kho
         {
             get => kho;
             set => SetPropertyValue(nameof(Kho), ref kho, value);
+        }
+        [XafDisplayName("Xuất cho bộ phận")]
+        [RuleRequiredField("Bắt buộc phải có PhieuXuatKho.BoPhan", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
+        public BoPhan BoPhan
+        {
+            get => boPhan;
+            set => SetPropertyValue(nameof(BoPhan), ref boPhan, value);
         }
         string ghiChu;
         [XafDisplayName("Ghi chú")]

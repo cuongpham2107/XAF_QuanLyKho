@@ -2941,6 +2941,11 @@
         },
         "runtime": {
           "QuanLyKhoVNPT.Module.dll": {}
+        },
+        "resources": {
+          "vi/QuanLyKhoVNPT.Module.resources.dll": {
+            "locale": "vi"
+          }
         }
       }
     }

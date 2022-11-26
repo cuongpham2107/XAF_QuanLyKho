@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="Delete" Caption="Xoá" />
+      <Action Id="DialogClose" Caption="Đóng" />
+      <Action Id="ReportViewerDialogControllerV2_Close" Caption="Đóng" />
+      <Action Id="Save" Caption="Lưu lại" />
+      <Action Id="ShowInReportV2" Caption="Xuất hoá đơn" />
+    </Actions>
+    <ActionToContainerMapping>
+      <ActionContainer Id="Save" Caption="Lưu lại" />
+    </ActionToContainerMapping>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyObjectPermissionsObject">
+      <OwnMembers>
+        <Member Name="DeleteState" Caption="Xoá" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject">
+      <OwnMembers>
+        <Member Name="DeleteState" Caption="Xoá" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="DialogButtons">
+      <LocalizationItem Name="Close" Value="Đóng" />
+      <LocalizationItem Name="Delete" Value="Xoá" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.ExpressApp.Security.ObjectAccess">
+        <LocalizationItem Name="Delete" Value="Xoá" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.Security.SecurityRequestOperations">
+        <LocalizationItem Name="Delete" Value="Xoá" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Messages">
+      <LocalizationItem Name="Delete" Value="Xoá" />
+    </LocalizationGroup>
+  </Localization>
+  <Validation>
+    <Contexts>
+      <ValidationContext Id="Delete" Caption="Xoá" />
+      <ValidationContext Id="Save" Caption="Lưu lại" />
+    </Contexts>
+  </Validation>
+</Application>

@@ -51,6 +51,10 @@
         <ColumnInfo Id="Kho" Index="6" />
         <ColumnInfo Id="MoTa" Index="7" />
       </Columns>
+      <HiddenActions>
+        <ActionLink ActionId="ShowInReportV2" IsNewNode="True" />
+        <ActionLink ActionId="Xuất kho" IsNewNode="True" />
+      </HiddenActions>
     </ListView>
     <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="False" AllowLink="True" AllowUnlink="False" AllowDelete="False">
       <Columns>
@@ -62,6 +66,9 @@
         <ColumnInfo Id="Kho" Index="6" />
         <ColumnInfo Id="MoTa" Index="7" />
       </Columns>
+      <HiddenActions>
+        <ActionLink ActionId="PhieuNhapKho-Btn_NhapVatTu" IsNewNode="True" />
+      </HiddenActions>
     </ListView>
     <DetailView Id="ThuKho_DetailView">
       <Layout>
@@ -117,6 +124,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="VatTu_ListView" AllowNew="False" />
+    <ListView Id="VatTu_ListView" AllowNew="True" AllowLink="False" />
   </Views>
 </Application>

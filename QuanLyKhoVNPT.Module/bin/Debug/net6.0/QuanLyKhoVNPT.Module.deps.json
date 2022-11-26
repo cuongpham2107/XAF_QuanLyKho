@@ -28,6 +28,11 @@
         },
         "runtime": {
           "QuanLyKhoVNPT.Module.dll": {}
+        },
+        "resources": {
+          "vi/QuanLyKhoVNPT.Module.resources.dll": {
+            "locale": "vi"
+          }
         }
       },
       "DevExpress.Charts/22.1.6": {

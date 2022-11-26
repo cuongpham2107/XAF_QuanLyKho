@@ -23,13 +23,42 @@ namespace QuanLyKhoVNPT.Module.Controllers
     
     public partial class NhapKhoController : ViewController
     {
-
+        //private NewObjectViewController controller;
+        //protected override void OnActivated()
+        //{
+        //    base.OnActivated();
+        //    controller = Frame.GetController<NewObjectViewController>();
+        //    if (controller != null)
+        //    {
+        //        controller.ObjectCreated += controller_ObjectCreated;
+        //    }
+        //}
+        //void controller_ObjectCreated(object sender, ObjectCreatedEventArgs e)
+        //{
+        //    if (e.CreatedObject is VatTu)
+        //    {
+        //        if (((DetailView)ObjectSpace.Owner).CurrentObject is PhieuNhapKho pnk)
+        //        {
+        //            var phieuNhap = e.ObjectSpace.GetObject(pnk);
+        //            ((VatTu)e.CreatedObject).PhieuNhapKho = phieuNhap;
+        //        }
+        //    }
+        //}
+        //protected override void OnDeactivated()
+        //{
+        //    if (controller != null)
+        //    {
+        //        controller.ObjectCreated -= controller_ObjectCreated;
+        //    }
+        //    base.OnDeactivated();
+        //}
         public NhapKhoController()
         {
             InitializeComponent();
             Btn_NhapVatTu();
             Btn_XuatVatTu();
         }
+
         private void Btn_NhapVatTu()
         {
             var action = new SimpleAction(this, $"{nameof(PhieuNhapKho)}-{nameof(Btn_NhapVatTu)}", "Edit")
