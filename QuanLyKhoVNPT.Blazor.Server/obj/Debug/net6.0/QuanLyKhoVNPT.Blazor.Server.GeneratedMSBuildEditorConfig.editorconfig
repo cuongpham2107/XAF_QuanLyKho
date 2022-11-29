@@ -9,21 +9,21 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuanLyKhoVNPT.Blazor.Server
 build_property.RootNamespace = QuanLyKhoVNPT.Blazor.Server
-build_property.ProjectDir = C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Blazor.Server\
+build_property.ProjectDir = C:\Users\cuong\source\repos\XAF_QuanLyKho\QuanLyKhoVNPT.Blazor.Server\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Blazor.Server
+build_property.MSBuildProjectDirectory = C:\Users\cuong\source\repos\XAF_QuanLyKho\QuanLyKhoVNPT.Blazor.Server
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/cuong/source/repos/QuanLyKhoVNPT/QuanLyKhoVNPT.Blazor.Server/App.razor]
+[C:/Users/cuong/source/repos/XAF_QuanLyKho/QuanLyKhoVNPT.Blazor.Server/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cuong/source/repos/QuanLyKhoVNPT/QuanLyKhoVNPT.Blazor.Server/_Imports.razor]
+[C:/Users/cuong/source/repos/XAF_QuanLyKho/QuanLyKhoVNPT.Blazor.Server/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cuong/source/repos/QuanLyKhoVNPT/QuanLyKhoVNPT.Blazor.Server/Pages/_Host.cshtml]
+[C:/Users/cuong/source/repos/XAF_QuanLyKho/QuanLyKhoVNPT.Blazor.Server/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

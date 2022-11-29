@@ -39,3 +39,12 @@ app {
 div#loadingBackground {
     background-color: #fff !important;
 }
+
+div .logon-bottom-toolbar {
+    display: none;
+}
+
+.middle-text-separator {
+    display: none;
+}
+

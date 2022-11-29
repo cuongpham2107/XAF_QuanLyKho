@@ -12,3 +12,17 @@ C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Module\obj\Debug\net6.0\
 C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Module\obj\Debug\net6.0\ref\QuanLyKhoVNPT.Module.dll
 C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Module\bin\Debug\net6.0\vi\QuanLyKhoVNPT.Module.resources.dll
 C:\Users\cuong\source\repos\QuanLyKhoVNPT\QuanLyKhoVNPT.Module\obj\Debug\net6.0\vi\QuanLyKhoVNPT.Module.resources.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\bin\Debug\net6.0\QuanLyKhoVNPT.Module.deps.json
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\bin\Debug\net6.0\QuanLyKhoVNPT.Module.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\bin\Debug\net6.0\QuanLyKhoVNPT.Module.pdb
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\bin\Debug\net6.0\vi\QuanLyKhoVNPT.Module.resources.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.csproj.AssemblyReference.cache
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.AssemblyInfoInputs.cache
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.AssemblyInfo.cs
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.csproj.CoreCompileInputs.cache
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\vi\QuanLyKhoVNPT.Module.resources.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\refint\QuanLyKhoVNPT.Module.dll
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\QuanLyKhoVNPT.Module.pdb
+C:\Users\cuong\Source\Repos\XAF_QuanLyKho\QuanLyKhoVNPT.Module\obj\Debug\net6.0\ref\QuanLyKhoVNPT.Module.dll

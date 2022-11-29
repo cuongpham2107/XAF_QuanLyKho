@@ -2,8 +2,13 @@
 <Application>
   <ActionDesign>
     <Actions>
+      <Action Id="Close" Caption="Đóng" />
       <Action Id="Logon" Caption="Đăng nhập" />
+      <Action Id="ReportWizard_Close" Caption="Đóng" />
     </Actions>
+    <ActionToContainerMapping>
+      <ActionContainer Id="Close" Caption="Đóng" />
+    </ActionToContainerMapping>
   </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters">
@@ -41,7 +46,11 @@
     </LocalizationGroup>
   </Localization>
   <Views>
-    <DetailView Id="AuthenticationStandardLogonParameters_Blazor_DetailView" Caption="Đăng nhập" />
+    <DetailView Id="AuthenticationStandardLogonParameters_Blazor_DetailView" Caption="Đăng nhập">
+      <Items>
+        <StaticText Id="LogonText" Text="Nhập tài khoản với mật khẩu của bạn ở dưới" />
+      </Items>
+    </DetailView>
     <DetailView Id="AuthenticationStandardLogonParameters_DetailView" Caption="Đăng nhập" />
   </Views>
 </Application>

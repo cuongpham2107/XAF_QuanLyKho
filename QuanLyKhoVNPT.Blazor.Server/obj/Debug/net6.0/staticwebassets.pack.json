@@ -1,19 +1,19 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\images\\Logo.svg",
+      "Id": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\images\\Logo.svg",
       "PackagePath": "staticwebassets\\images\\Logo.svg"
     },
     {
-      "Id": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\images\\SplashScreen.svg",
+      "Id": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Blazor.Server\\wwwroot\\images\\SplashScreen.svg",
       "PackagePath": "staticwebassets\\images\\SplashScreen.svg"
     },
     {

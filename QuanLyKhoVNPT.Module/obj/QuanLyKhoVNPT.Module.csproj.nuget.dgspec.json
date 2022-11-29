@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj": {}
+    "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj": {
+    "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj",
+        "projectUniqueName": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj",
         "projectName": "QuanLyKhoVNPT.Module",
-        "projectPath": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj",
+        "projectPath": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Module\\QuanLyKhoVNPT.Module.csproj",
         "packagesPath": "C:\\Users\\cuong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cuong\\source\\repos\\QuanLyKhoVNPT\\QuanLyKhoVNPT.Module\\obj\\",
+        "outputPath": "C:\\Users\\cuong\\source\\repos\\XAF_QuanLyKho\\QuanLyKhoVNPT.Module\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
@@ -111,6 +111,14 @@
             "DevExpress.Persistent.BaseImpl.Xpo": {
               "target": "Package",
               "version": "[22.1.6, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "ExcelDataReader": {
+              "target": "Package",
+              "version": "[3.6.0, )"
             },
             "MySql.Data": {
               "target": "Package",

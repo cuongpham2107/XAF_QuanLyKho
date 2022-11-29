@@ -83,10 +83,12 @@ namespace QuanLyKhoVNPT.Module.Controllers
                             var vt = e.CreatedObject as VatTu;
                             var phieuNhap = e.ObjectSpace.GetObject(pnk);
                             vt.PhieuNhapKho = phieuNhap;
+                            vt.Kho = phieuNhap.Kho;
+                           
                         }
                         controller.ObjectCreated += Created;
                         controller.NewObjectAction.DoExecute(controller.NewObjectAction.Items[0]);
-                        Application.ShowViewStrategy.ShowMessage("Nhập kho thành công", InformationType.Info, displayInterval: 3000, InformationPosition.Bottom);
+                       
 
                     }
 
@@ -115,16 +117,15 @@ namespace QuanLyKhoVNPT.Module.Controllers
                 {
                     if ((item as VatTu).SoLuongXuat <= (item as VatTu).SoLuongNhap && (item as VatTu).SoLuongNhap >= ((item as VatTu).SoLuongXuat + parameter.SoLuong))
                     {
-
                         (item as VatTu).SoLuongXuat = (item as VatTu).SoLuongXuat + parameter.SoLuong;
-                       
+                        ObjectSpace.CommitChanges();
                     }
                     else
                     {
                         Application.ShowViewStrategy.ShowMessage("Vật tư này trong khong đã hết", InformationType.Error, displayInterval: 3000, InformationPosition.Bottom);
                     }
                 }
-                ObjectSpace.CommitChanges();
+               
             };
         }
     }

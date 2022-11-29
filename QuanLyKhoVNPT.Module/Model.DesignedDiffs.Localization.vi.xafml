@@ -4,11 +4,17 @@
     <Actions>
       <Action Id="Delete" Caption="Xoá" />
       <Action Id="DialogClose" Caption="Đóng" />
+      <Action Id="FullTextSearch" NullValuePrompt="Tìm kiếm từ khoá..." />
+      <Action Id="Link" Caption="Chọn" />
+      <Action Id="New" Caption="Tạo mới" />
+      <Action Id="Refresh" Caption="Tải lại" />
+      <Action Id="RefreshAction" Caption="Tải lại" />
       <Action Id="ReportViewerDialogControllerV2_Close" Caption="Đóng" />
       <Action Id="Save" Caption="Lưu lại" />
       <Action Id="ShowInReportV2" Caption="Xuất hoá đơn" />
     </Actions>
     <ActionToContainerMapping>
+      <ActionContainer Id="Link" Caption="Chọn" />
       <ActionContainer Id="Save" Caption="Lưu lại" />
     </ActionToContainerMapping>
   </ActionDesign>
@@ -47,4 +53,11 @@
       <ValidationContext Id="Save" Caption="Lưu lại" />
     </Contexts>
   </Validation>
+  <Views>
+    <DetailView Id="AuthenticationStandardLogonParameters_Blazor_DetailView">
+      <Items>
+        <StaticText Id="LogonText" Text="Nhập tài khoản với mật khẩu của bạn ở dưới" />
+      </Items>
+    </DetailView>
+  </Views>
 </Application>

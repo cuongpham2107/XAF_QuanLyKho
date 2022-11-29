@@ -23,6 +23,9 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
+
+    [Appearance("Error",BackColor = "Red", FontStyle = System.Drawing.FontStyle.Bold, TargetItems = "*", Criteria = "[SoLuongTonKho] = 0 And [SoLuongNhap] <> 0")]
+    
     public class VatTu : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
@@ -37,6 +40,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        MaVatTu maVatTu;
         int tongTienXuat;
         int tongTienNhap;
         int soLuongTonKho;
@@ -44,14 +48,15 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         int gia;
         string doViTinh;
         string tenVatTu;
-        string maVatTu;
         int soLuongNhap;
         NhomVatTu nhomVatTu;
         string moTa;
         byte[] hinhAnh;
+
         [XafDisplayName("Mã vật tư")]
         [RuleRequiredField("Bắt buộc phải có VatTu.MaVatTu", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
-        public string MaVatTu
+        [Association("MaVatTu-VatTus")]
+        public MaVatTu MaVatTu
         {
             get => maVatTu;
             set => SetPropertyValue(nameof(MaVatTu), ref maVatTu, value);
