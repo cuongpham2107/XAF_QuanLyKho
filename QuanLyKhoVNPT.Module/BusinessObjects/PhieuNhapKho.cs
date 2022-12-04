@@ -40,7 +40,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         }
 
         string ghiChu;
-        string tongSoTien;
+        int tongSoTien;
         int tongSoLuongNhap;
         DateTime ngayNhap;
         string tenPhieu;
@@ -86,11 +86,11 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         {
             get
             {
-                if (!IsLoading && !IsSaving)
-                {
-                    return VatTus.Sum(i => i.TongTienNhap);
-                }
-                return 0;
+                return tongSoTien;
+            }
+            set
+            {
+                SetPropertyValue(nameof(TongSoTien), ref tongSoTien, value);
             }
         }
 
@@ -108,10 +108,6 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => kho;
             set => SetPropertyValue(nameof(Kho), ref kho, value);
         }
-
-        
-
-
 
         [XafDisplayName("Danh sách nhập vật tư")]
         [Association("PhieuNhapKho-VatTus")]

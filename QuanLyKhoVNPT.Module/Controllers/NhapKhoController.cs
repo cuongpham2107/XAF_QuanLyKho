@@ -20,7 +20,7 @@ using System.Text;
 
 namespace QuanLyKhoVNPT.Module.Controllers
 {
-    
+
     public partial class NhapKhoController : ViewController
     {
         //private NewObjectViewController controller;
@@ -84,11 +84,11 @@ namespace QuanLyKhoVNPT.Module.Controllers
                             var phieuNhap = e.ObjectSpace.GetObject(pnk);
                             vt.PhieuNhapKho = phieuNhap;
                             vt.Kho = phieuNhap.Kho;
-                           
+
                         }
                         controller.ObjectCreated += Created;
                         controller.NewObjectAction.DoExecute(controller.NewObjectAction.Items[0]);
-                       
+
 
                     }
 
@@ -105,12 +105,14 @@ namespace QuanLyKhoVNPT.Module.Controllers
                 TargetViewType = ViewType.ListView,
                 SelectionDependencyType = SelectionDependencyType.RequireSingleObject
             };
-            action.CustomizePopupWindowParams += (s, e) => {
+            action.CustomizePopupWindowParams += (s, e) =>
+            {
                 IObjectSpace objectSpace = Application.CreateObjectSpace();
                 var keHoach = new DomainClass();
-                e.View = Application.CreateDetailView(objectSpace,keHoach, true);
+                e.View = Application.CreateDetailView(objectSpace, keHoach, true);
             };
-            action.Execute += (s, e) => {
+            action.Execute += (s, e) =>
+            {
                 var popupParameter = e.PopupWindowViewCurrentObject as DomainClass;
                 var parameter = ObjectSpace.GetObject(popupParameter);
                 foreach (object item in View.SelectedObjects)
@@ -122,10 +124,10 @@ namespace QuanLyKhoVNPT.Module.Controllers
                     }
                     else
                     {
-                        Application.ShowViewStrategy.ShowMessage("Vật tư này trong khong đã hết", InformationType.Error, displayInterval: 3000, InformationPosition.Bottom);
+                        Application.ShowViewStrategy.ShowMessage("Vật tư này trong kho đã hết", InformationType.Error, displayInterval: 3000, InformationPosition.Bottom);
                     }
                 }
-               
+
             };
         }
     }
@@ -140,5 +142,5 @@ namespace QuanLyKhoVNPT.Module.Controllers
 
 }
 
-    
+
 

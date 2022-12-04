@@ -61,34 +61,34 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => ngayXuat;
             set => SetPropertyValue(nameof(NgayXuat), ref ngayXuat, value);
         }
-        int tongSoLuongXuat;
-        [ModelDefault("AllowEdit", "False")]
-        [XafDisplayName("Tổng số lượng xuất")]
-        public int TongSoLuongXuat
-        {
-            get
-            {
-                if (!IsLoading && !IsSaving)
-                {
-                    return VatTus.Sum(i => i.SoLuongXuat);
-                }
-                return 0;
-            }
-        }
-        int tongSoTien;
-        [ModelDefault("AllowEdit", "False")]
-        [XafDisplayName("Tổng số tiền")]
-        public int TongSoTien
-        {
-            get
-            {
-                if (!IsLoading && !IsSaving)
-                {
-                    return VatTus.Sum(i => i.TongTienXuat);
-                }
-                return 0;
-            }
-        }
+        //int tongSoLuongXuat;
+        //[ModelDefault("AllowEdit", "False")]
+        //[XafDisplayName("Tổng số lượng xuất")]
+        //public int TongSoLuongXuat
+        //{
+        //    get
+        //    {
+        //        if (!IsLoading && !IsSaving)
+        //        {
+        //            return VatTus.Sum(i => i.SoLuongXuat);
+        //        }
+        //        return 0;
+        //    }
+        //}
+        //int tongSoTien;
+        //[ModelDefault("AllowEdit", "False")]
+        //[XafDisplayName("Tổng số tiền")]
+        //public int TongSoTien
+        //{
+        //    get
+        //    {
+        //        if (!IsLoading && !IsSaving)
+        //        {
+        //            return VatTus.Sum(i => i.TongTienXuat);
+        //        }
+        //        return 0;
+        //    }
+        //}
         Kho kho;
         [XafDisplayName("Kho")]
         [RuleRequiredField("Bắt buộc phải có PhieuXuatKho.Kho", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
@@ -113,12 +113,12 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(GhiChu), ref ghiChu, value);
         }
         [XafDisplayName("Danh sách xuất vật tư")]
-        [Association("PhieuXuatKho-VatTus")]
-        public XPCollection<VatTu> VatTus
+        [Association("PhieuXuatKho-VatTu_PhieuXuatKhos")]
+        public XPCollection<VatTu_PhieuXuatKho> VatTu_PhieuXuatKhos
         {
             get
             {
-                return GetCollection<VatTu>(nameof(VatTus));
+                return GetCollection<VatTu_PhieuXuatKho>(nameof(VatTu_PhieuXuatKhos));
             }
         }
     }

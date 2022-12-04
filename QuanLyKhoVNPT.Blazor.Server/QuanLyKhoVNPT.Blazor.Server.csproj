@@ -37,4 +37,7 @@
   <ItemGroup>
     <ProjectReference Include="..\QuanLyKhoVNPT.Module\QuanLyKhoVNPT.Module.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
 </Project>

@@ -24,8 +24,8 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
 
-    [Appearance("Error",BackColor = "Red", FontStyle = System.Drawing.FontStyle.Bold, TargetItems = "*", Criteria = "[SoLuongTonKho] = 0 And [SoLuongNhap] <> 0")]
-    
+    [Appearance("Error", BackColor = "Red", FontStyle = System.Drawing.FontStyle.Bold, TargetItems = "*", Criteria = "[SoLuongTonKho] = 0 And [SoLuongNhap] <> 0")]
+
     public class VatTu : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
@@ -40,7 +40,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        MaVatTu maVatTu;
+        string maVatTu;
         int tongTienXuat;
         int tongTienNhap;
         int soLuongTonKho;
@@ -55,8 +55,8 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
 
         [XafDisplayName("Mã vật tư")]
         [RuleRequiredField("Bắt buộc phải có VatTu.MaVatTu", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
-        [Association("MaVatTu-VatTus")]
-        public MaVatTu MaVatTu
+        //[Association("MaVatTu-VatTus")]
+        public string MaVatTu
         {
             get => maVatTu;
             set => SetPropertyValue(nameof(MaVatTu), ref maVatTu, value);
@@ -99,16 +99,9 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         {
             get
             {
-                if (SoLuongNhap != 0)
-                {
-                    if (SoLuongXuat != 0)
-                    {
-                        return SoLuongNhap - SoLuongXuat;
-                    }
-                    return SoLuongNhap;
-                }
-                return 0;
+                return soLuongTonKho;
             }
+            set { SetPropertyValue(nameof(SoLuongTonKho),ref soLuongTonKho, value); }   
         }
         [XafDisplayName("Giá tiền")]
         public int Gia
@@ -117,34 +110,34 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(Gia), ref gia, value);
         }
 
-        [XafDisplayName("Tổng số tiền nhập")]
-        [VisibleInDetailView(false)]
-        [VisibleInListView(false)]
-        public int TongTienNhap
-        {
-            get
-            {
-                if (!IsSaving && !IsLoading)
-                {
-                    return SoLuongNhap * Gia;
-                }
-                return 0;
-            }
-        }
-        [XafDisplayName("Tổng số tiền xuất")]
-        [VisibleInDetailView(false)]
-        [VisibleInListView(false)]
-        public int TongTienXuat
-        {
-            get
-            {
-                if(!IsSaving && !IsLoading)
-                {
-                    return SoLuongXuat * Gia;
-                }
-                return 0;
-            }
-        }
+        //[XafDisplayName("Tổng số tiền nhập")]
+        //[VisibleInDetailView(false)]
+        //[VisibleInListView(false)]
+        //public int TongTienNhap
+        //{
+        //    get
+        //    {
+        //        if (!IsSaving && !IsLoading)
+        //        {
+        //            return SoLuongNhap * Gia;
+        //        }
+        //        return 0;
+        //    }
+        //}
+        //[XafDisplayName("Tổng số tiền xuất")]
+        //[VisibleInDetailView(false)]
+        //[VisibleInListView(false)]
+        //public int TongTienXuat
+        //{
+        //    get
+        //    {
+        //        if (!IsSaving && !IsLoading)
+        //        {
+        //            return SoLuongXuat * Gia;
+        //        }
+        //        return 0;
+        //    }
+        //}
 
         [XafDisplayName("Nhóm vật tư")]
         public NhomVatTu NhomVatTu
@@ -162,16 +155,16 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => phieuNhapKho;
             set => SetPropertyValue(nameof(PhieuNhapKho), ref phieuNhapKho, value);
         }
-        PhieuXuatKho phieuXuatKho;
-        [XafDisplayName("Phiếu xuất kho")]
-        [Association("PhieuXuatKho-VatTus")]
-        [VisibleInDetailView(false)]
-        [VisibleInListView(false)]
-        public PhieuXuatKho PhieuXuatKho
-        {
-            get => phieuXuatKho;
-            set => SetPropertyValue(nameof(PhieuXuatKho), ref phieuXuatKho, value);
-        }
+        //PhieuXuatKho phieuXuatKho;
+        //[XafDisplayName("Phiếu xuất kho")]
+        //[Association("PhieuXuatKho-VatTus")]
+        //[VisibleInDetailView(false)]
+        //[VisibleInListView(false)]
+        //public PhieuXuatKho PhieuXuatKho
+        //{
+        //    get => phieuXuatKho;
+        //    set => SetPropertyValue(nameof(PhieuXuatKho), ref phieuXuatKho, value);
+        //}
         [XafDisplayName("Kho")]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
@@ -180,7 +173,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         public Kho Kho
         {
             get => kho;
-            set => SetPropertyValue(nameof(Kho), ref kho, value);   
+            set => SetPropertyValue(nameof(Kho), ref kho, value);
         }
         [XafDisplayName("Hình ảnh")]
         [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit,
@@ -197,7 +190,15 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => moTa;
             set => SetPropertyValue(nameof(MoTa), ref moTa, value);
         }
-
+        [XafDisplayName("Phiếu xuất kho")]
+        [Association("VatTu-VatTu_PhieuXuatKhos")]
+        public XPCollection<VatTu_PhieuXuatKho> VatTu_PhieuXuatKhos
+        {
+            get
+            {
+                return GetCollection<VatTu_PhieuXuatKho>(nameof(VatTu_PhieuXuatKhos));
+            }
+        }
     }
- 
+
 }

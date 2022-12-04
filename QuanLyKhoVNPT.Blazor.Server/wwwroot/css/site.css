@@ -48,3 +48,6 @@ div .logon-bottom-toolbar {
     display: none;
 }
 
+.Action_tabbar_right span {
+    display: none;
+}

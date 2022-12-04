@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="QuanLyKhoVNPT">
+  <ActionDesign>
+    <Actions>
+      <Action Id="FullTextSearch" NullValuePrompt="Nhập từ khoá tìm kiếm..." />
+    </Actions>
+  </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
     <Class Name="QuanLyKhoVNPT.Module.BusinessObjects.VatTu">
       <AppearanceRules>
-        <AppearanceRule Id="ConTrongKho" BackColor="0, 192, 0" FontColor="0, 0, 0" FontStyle="Bold" TargetItems="SoLuongTonKho" Criteria="[SoLuongTonKho] &gt; 0" IsNewNode="True" />
+        <AppearanceRule Id="ConTrongKho" BackColor="0, 192, 0" FontColor="Black" FontStyle="Bold" TargetItems="SoLuongTonKho" Criteria="[SoLuongTonKho] &gt; 0" IsNewNode="True" />
         <AppearanceRule Id="Error" Criteria="[SoLuongTonKho] = 0 And [SoLuongNhap] &lt;&gt; 0" />
         <AppearanceRule Id="HidePhieuNhap" Criteria="[PhieuNhapKho] Is Null" />
         <AppearanceRule Id="HidePhieuXuat" Criteria="[PhieuXuatKho] Is Null" />
@@ -44,7 +49,7 @@
         <ColumnInfo Id="MoTa" Index="6" />
       </Columns>
     </ListView>
-    <ListView Id="PhieuNhapKho_VatTus_ListView" AllowNew="True" AllowUnlink="False" AllowDelete="False" AllowLink="False">
+    <ListView Id="PhieuNhapKho_VatTus_ListView" AllowNew="True" AllowUnlink="True" AllowDelete="True" AllowLink="True">
       <Columns>
         <ColumnInfo Id="SoLuongTonKho" Index="-1" />
         <ColumnInfo Id="SoLuongXuat" Index="-1" />
@@ -58,7 +63,7 @@
         <ActionLink ActionId="Xuất kho" IsNewNode="True" />
       </HiddenActions>
     </ListView>
-    <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="False" AllowLink="True" AllowUnlink="False" AllowDelete="False">
+    <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" AllowDelete="True">
       <Columns>
         <ColumnInfo Id="SoLuongNhap" Index="-1" />
         <ColumnInfo Id="SoLuongXuat" Index="3" />
@@ -126,8 +131,8 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="VatTu_ListView" AllowNew="True" AllowLink="False" />
-    <ListView Id="VatTu_LookupListView">
+    <ListView Id="VatTu_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" />
+    <ListView Id="VatTu_LookupListView" AllowEdit="True">
       <Columns>
         <ColumnInfo Id="SoLuongTonKho" PropertyName="SoLuongTonKho" Index="1" IsNewNode="True" />
       </Columns>

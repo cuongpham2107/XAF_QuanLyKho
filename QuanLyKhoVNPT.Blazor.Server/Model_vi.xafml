@@ -3,6 +3,7 @@
   <ActionDesign>
     <Actions>
       <Action Id="Close" Caption="Đóng" />
+      <Action Id="ColumnChooser" ShortCaption="" />
       <Action Id="Logon" Caption="Đăng nhập" />
       <Action Id="ReportWizard_Close" Caption="Đóng" />
     </Actions>
