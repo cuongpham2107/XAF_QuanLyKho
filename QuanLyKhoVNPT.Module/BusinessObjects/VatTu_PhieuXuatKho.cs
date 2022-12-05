@@ -25,7 +25,6 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
         int soLuongTon;
@@ -55,6 +54,8 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             }
         }
         [Association("PhieuXuatKho-VatTu_PhieuXuatKhos")]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
         public PhieuXuatKho PhieuXuatKho
         {
             get => phieuXuatKho;
@@ -65,6 +66,22 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         {
             get => soLuong;
             set => SetPropertyValue(nameof(SoLuong), ref soLuong, value);
+        }
+        double thanhTien;
+        [XafDisplayName("Thành tiền")]
+        public double ThanhTien
+        {
+            get
+            {
+                if(!IsLoading && !IsSaving)
+                {
+                    if(VatTu != null && SoLuong > 0 )
+                    {
+                        return SoLuong * VatTu.Gia;
+                    }
+                }
+                return 0;
+            }
         }
     }
 }

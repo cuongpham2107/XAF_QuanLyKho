@@ -11,13 +11,16 @@
       <AppearanceRules>
         <AppearanceRule Id="ConTrongKho" BackColor="0, 192, 0" FontColor="Black" FontStyle="Bold" TargetItems="SoLuongTonKho" Criteria="[SoLuongTonKho] &gt; 0" IsNewNode="True" />
         <AppearanceRule Id="Error" Criteria="[SoLuongTonKho] = 0 And [SoLuongNhap] &lt;&gt; 0" />
-        <AppearanceRule Id="HidePhieuNhap" Criteria="[PhieuNhapKho] Is Null" />
-        <AppearanceRule Id="HidePhieuXuat" Criteria="[PhieuXuatKho] Is Null" />
       </AppearanceRules>
     </Class>
   </BOModel>
   <NavigationItems>
     <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="VatTu_PhieuXuatKho_ListView" Visible="False" />
+        </Items>
+      </Item>
       <Item Id="Quản lý Nhập - Xuất kho" Caption="📂 Quản lý Nhập - Xuất kho" />
       <Item Id="Reports" Caption="🖨 Báo cáo">
         <Items>
@@ -42,59 +45,132 @@
     <ListView Id="Kho_VatTus_ListView">
       <Columns>
         <ColumnInfo Id="SoLuongNhap" Index="-1" />
-        <ColumnInfo Id="SoLuongXuat" Index="-1" />
         <ColumnInfo Id="SoLuongTonKho" Index="3" />
         <ColumnInfo Id="Gia" Index="4" />
         <ColumnInfo Id="NhomVatTu" Index="5" />
         <ColumnInfo Id="MoTa" Index="6" />
       </Columns>
     </ListView>
+    <DetailView Id="PhieuNhapKho_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="24.536376604850215">
+            <LayoutGroup Id="PhieuNhapKho" Caption="Phiếu nhập kho" RelativeSize="100">
+              <LayoutGroup Id="PhieuNhapKho_col1" RelativeSize="49.94629430719656">
+                <LayoutItem Id="MaPhieu" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="TenPhieu" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="NgayNhap" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="TongSoLuongNhap" RelativeSize="29.032258064516128" />
+              </LayoutGroup>
+              <LayoutGroup Id="PhieuNhapKho_col2" RelativeSize="50.05370569280344">
+                <LayoutItem Id="TongSoTien" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="GhiChu" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Kho" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="VatTus_Group" Direction="Vertical" RelativeSize="75.46362339514978">
+            <LayoutItem Id="VatTus" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PhieuNhapKho_ListView" ShowAutoFilterRow="True" IsGroupPanelVisible="True" IsFooterVisible="True" FreezeColumnIndices="True">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="TenPhieu" Index="0" />
+        <ColumnInfo Id="MaPhieu" Index="1" />
+        <ColumnInfo Id="NgayNhap" Index="2" />
+        <ColumnInfo Id="TongSoLuongNhap" Index="3">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="TongSoTien" Index="4">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="GhiChu" Index="5" />
+        <ColumnInfo Id="Kho" Index="6" />
+      </Columns>
+    </ListView>
     <ListView Id="PhieuNhapKho_VatTus_ListView" AllowNew="True" AllowUnlink="True" AllowDelete="True" AllowLink="True">
       <Columns>
         <ColumnInfo Id="SoLuongTonKho" Index="-1" />
-        <ColumnInfo Id="SoLuongXuat" Index="-1" />
         <ColumnInfo Id="Gia" Index="4" />
         <ColumnInfo Id="NhomVatTu" Index="5" />
         <ColumnInfo Id="Kho" Index="6" />
         <ColumnInfo Id="MoTa" Index="7" />
       </Columns>
       <HiddenActions>
+        <ActionLink ActionId="Link" IsNewNode="True" />
         <ActionLink ActionId="ShowInReportV2" IsNewNode="True" />
-        <ActionLink ActionId="Xuất kho" IsNewNode="True" />
+        <ActionLink ActionId="Unlink" IsNewNode="True" />
       </HiddenActions>
     </ListView>
-    <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" AllowDelete="True">
+    <DetailView Id="PhieuXuatKho_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="24.536376604850215">
+            <LayoutGroup Id="PhieuXuatKho" Caption="Phiếu xuất kho" RelativeSize="100">
+              <LayoutGroup Id="PhieuXuatKho_col1" RelativeSize="49.94629430719656">
+                <LayoutItem Id="MaPhieuXuat" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="TenPhieu" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="NgayXuat" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="TongSoTien" RelativeSize="29.032258064516128" />
+              </LayoutGroup>
+              <LayoutGroup Id="PhieuXuatKho_col2" RelativeSize="50.05370569280344">
+                <LayoutItem Id="Kho" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="BoPhan" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="GhiChu" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="VatTu_PhieuXuatKhos_Group" Direction="Vertical" RelativeSize="75.46362339514978">
+            <LayoutItem Id="VatTu_PhieuXuatKhos" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PhieuXuatKho_ListView" ShowAutoFilterRow="True" IsGroupPanelVisible="True" IsFooterVisible="True" FreezeColumnIndices="True">
       <Columns>
-        <ColumnInfo Id="SoLuongNhap" Index="-1" />
-        <ColumnInfo Id="SoLuongXuat" Index="3" />
-        <ColumnInfo Id="SoLuongTonKho" Index="4" />
-        <ColumnInfo Id="Gia" Index="5" />
-        <ColumnInfo Id="NhomVatTu" Index="6" />
-        <ColumnInfo Id="Kho" Index="7" />
-        <ColumnInfo Id="MoTa" Index="8" />
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="TenPhieu" Index="0" />
+        <ColumnInfo Id="MaPhieuXuat" Index="1" />
+        <ColumnInfo Id="NgayXuat" Index="2" />
+        <ColumnInfo Id="TongSoTien" Index="3">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="Kho" Index="4" />
+        <ColumnInfo Id="BoPhan" Index="5" />
+        <ColumnInfo Id="GhiChu" Index="6" />
       </Columns>
+    </ListView>
+    <ListView Id="PhieuXuatKho_VatTu_PhieuXuatKhos_ListView">
       <HiddenActions>
-        <ActionLink ActionId="PhieuNhapKho-Btn_NhapVatTu" IsNewNode="True" />
+        <ActionLink ActionId="Link" IsNewNode="True" />
+        <ActionLink ActionId="Unlink" IsNewNode="True" />
       </HiddenActions>
     </ListView>
     <DetailView Id="ThuKho_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="ThuKho" RelativeSize="100">
-              <LayoutGroup Id="ThuKho_col1" RelativeSize="33.225806451612904">
-                <LayoutItem Id="TenThuKho" RelativeSize="5.633802816901408" />
-                <LayoutItem Id="SoDienThoai" RelativeSize="4.225352112676056" />
-                <LayoutItem Id="Email" RelativeSize="90.14084507042253" />
+            <LayoutGroup Id="ThuKho" ShowCaption="True" Caption="Thủ kho" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True" Removed="True">
+              <LayoutGroup Id="ThuKho_col1" ShowCaption="False" Index="0" RelativeSize="33.208255159474675" IsNewNode="True">
+                <LayoutItem Id="TenThuKho" ViewItem="TenThuKho" Index="0" RelativeSize="4.878048780487805" IsNewNode="True" />
+                <LayoutItem Id="SoDienThoai" ViewItem="SoDienThoai" Index="1" RelativeSize="3.4146341463414633" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" Index="2" RelativeSize="91.70731707317073" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="ThuKho_col2" Caption="ThuKho_col2" Direction="Horizontal" RelativeSize="66.7741935483871">
-                <LayoutGroup Id="Auto83ff3e93-af55-4f69-9147-05ead097b0a0" ShowCaption="False" Caption="" Index="0" RelativeSize="53.14009661835749" IsNewNode="True">
-                  <LayoutItem Id="DiaChi" ViewItem="DiaChi" Index="0" RelativeSize="5.633802816901408" IsNewNode="True" />
-                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="1" RelativeSize="94.36619718309859" IsNewNode="True" />
+              <LayoutGroup Id="ThuKho_col2" ShowCaption="False" Direction="Horizontal" Index="1" RelativeSize="66.79174484052533" IsNewNode="True">
+                <LayoutGroup Id="Auto83ff3e93-af55-4f69-9147-05ead097b0a0" ShowCaption="False" Caption="Auto83ff3e93-af55-4f69-9147-05ead097b0a0(9)" Index="0" RelativeSize="53.08988764044944" IsNewNode="True">
+                  <LayoutItem Id="DiaChi" ViewItem="DiaChi" Index="0" RelativeSize="4.878048780487805" IsNewNode="True" />
+                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="1" RelativeSize="95.1219512195122" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutItem Id="HinhAnh" RelativeSize="46.85990338164251" />
-                <LayoutItem Id="DiaChi" Removed="True" />
-                <LayoutItem Id="MoTa" Removed="True" />
+                <LayoutItem Id="HinhAnh" ViewItem="HinhAnh" Index="1" RelativeSize="46.91011235955056" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
@@ -105,23 +181,21 @@
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="VatTu" RelativeSize="100">
-              <LayoutGroup Id="VatTu_col1" RelativeSize="35.483870967741936">
-                <LayoutItem Id="MaVatTu" RelativeSize="5.167173252279635" />
-                <LayoutItem Id="TenVatTu" RelativeSize="3.6474164133738602" />
-                <LayoutItem Id="DoViTinh" RelativeSize="3.6474164133738602" />
-                <LayoutItem Id="SoLuongNhap" RelativeSize="3.6474164133738602" />
-                <LayoutItem Id="SoLuongXuat" RelativeSize="83.89057750759878" />
+            <LayoutGroup Id="VatTu" RelativeSize="100" Caption="Vật tư">
+              <LayoutGroup Id="VatTu_col1" RelativeSize="35.44575725026853">
+                <LayoutItem Id="MaVatTu" RelativeSize="5.529953917050691" />
+                <LayoutItem Id="TenVatTu" RelativeSize="3.9938556067588324" />
+                <LayoutItem Id="DoViTinh" RelativeSize="3.9938556067588324" />
+                <LayoutItem Id="SoLuongNhap" RelativeSize="3.9938556067588324" />
+                <LayoutItem Id="Gia" RelativeSize="82.48847926267281" />
               </LayoutGroup>
-              <LayoutGroup Id="VatTu_col2" Caption="VatTu_col2" Direction="Horizontal" RelativeSize="64.51612903225806">
-                <LayoutGroup Id="Auto3e39f30f-65f6-4e15-ab96-da9a05d53a75" ShowCaption="False" Caption="" Index="0" RelativeSize="53.857142857142854" IsNewNode="True">
-                  <LayoutItem Id="Gia" ViewItem="Gia" Index="0" RelativeSize="5.167173252279635" IsNewNode="True" />
-                  <LayoutItem Id="NhomVatTu" ViewItem="NhomVatTu" Index="1" RelativeSize="3.6474164133738602" IsNewNode="True" />
-                  <LayoutItem Id="Kho" ViewItem="Kho" Index="2" RelativeSize="3.6474164133738602" IsNewNode="True" />
-                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="3" RelativeSize="87.53799392097264" IsNewNode="True" />
+              <LayoutGroup Id="VatTu_col2" Caption="VatTu_col2" Direction="Horizontal" RelativeSize="64.55424274973147">
+                <LayoutGroup Id="Auto3e39f30f-65f6-4e15-ab96-da9a05d53a75" ShowCaption="False" Caption="Auto3e39f30f-65f6-4e15-ab96-da9a05d53a75(11)" Index="0" RelativeSize="53.74376039933444" IsNewNode="True">
+                  <LayoutItem Id="NhomVatTu" ViewItem="NhomVatTu" Index="0" RelativeSize="5.529953917050691" IsNewNode="True" />
+                  <LayoutItem Id="Kho" ViewItem="Kho" Index="1" RelativeSize="3.9938556067588324" IsNewNode="True" />
+                  <LayoutItem Id="MoTa" ViewItem="MoTa" Index="2" RelativeSize="90.47619047619048" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutItem Id="HinhAnh" Index="1" RelativeSize="46.142857142857146" />
-                <LayoutItem Id="Gia" Removed="True" />
+                <LayoutItem Id="HinhAnh" Index="1" RelativeSize="46.25623960066556" />
                 <LayoutItem Id="Kho" Removed="True" />
                 <LayoutItem Id="MoTa" Removed="True" />
                 <LayoutItem Id="NhomVatTu" Removed="True" />
@@ -131,7 +205,42 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="VatTu_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" />
+    <ListView Id="VatTu_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" IsGroupPanelVisible="True" IsFooterVisible="True" FreezeColumnIndices="True" ShowAutoFilterRow="True">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="PhieuNhapKho" Index="-1" />
+        <ColumnInfo Id="TongTienNhap" Index="-1" />
+        <ColumnInfo Id="TenVatTu" Index="0">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Count" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="MaVatTu" Index="1" />
+        <ColumnInfo Id="DoViTinh" Index="2" />
+        <ColumnInfo Id="SoLuongNhap" Index="3">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="SoLuongTonKho" Index="4">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="Gia" Index="5">
+          <Summary>
+            <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="NhomVatTu" Index="6" />
+        <ColumnInfo Id="Kho" Index="7" />
+        <ColumnInfo Id="HinhAnh" Index="8" />
+        <ColumnInfo Id="MoTa" Index="9" />
+      </Columns>
+      <HiddenActions>
+        <ActionLink ActionId="New" IsNewNode="True" />
+      </HiddenActions>
+    </ListView>
     <ListView Id="VatTu_LookupListView" AllowEdit="True">
       <Columns>
         <ColumnInfo Id="SoLuongTonKho" PropertyName="SoLuongTonKho" Index="1" IsNewNode="True" />

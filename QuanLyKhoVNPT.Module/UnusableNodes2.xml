@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="PhieuNhapKho_VatTus_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="SoLuongXuat" Index="-1" />
+      </Columns>
+    </ListView>
+    <ListView Id="Kho_VatTus_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="SoLuongXuat" Index="-1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="VatTu_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="VatTu">
+              <LayoutGroup Id="VatTu_col1">
+                <LayoutItem Id="SoLuongXuat" RelativeSize="83.89057750759878" />
+              </LayoutGroup>
+              <LayoutGroup Id="VatTu_col2">
+                <LayoutItem Id="Gia" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="QuanLyKhoVNPT.Module.BusinessObjects.VatTu">
+      <AppearanceRules Id="AppearanceRules">
+        <AppearanceRule Id="HidePhieuNhap" Criteria="[PhieuNhapKho] Is Null" />
+        <AppearanceRule Id="HidePhieuXuat" Criteria="[PhieuXuatKho] Is Null" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
+</Application>

@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Model.xafml" />
     <None Remove="Model_vi.xafml" />
+    <None Remove="Templates\CustomApplicationWindowTemplate.cs~RF5967545f.TMP" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model.xafml">
@@ -36,8 +37,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuanLyKhoVNPT.Module\QuanLyKhoVNPT.Module.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Templates\" />
   </ItemGroup>
 </Project>

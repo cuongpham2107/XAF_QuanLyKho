@@ -61,34 +61,21 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => ngayXuat;
             set => SetPropertyValue(nameof(NgayXuat), ref ngayXuat, value);
         }
-        //int tongSoLuongXuat;
-        //[ModelDefault("AllowEdit", "False")]
-        //[XafDisplayName("Tổng số lượng xuất")]
-        //public int TongSoLuongXuat
-        //{
-        //    get
-        //    {
-        //        if (!IsLoading && !IsSaving)
-        //        {
-        //            return VatTus.Sum(i => i.SoLuongXuat);
-        //        }
-        //        return 0;
-        //    }
-        //}
-        //int tongSoTien;
-        //[ModelDefault("AllowEdit", "False")]
-        //[XafDisplayName("Tổng số tiền")]
-        //public int TongSoTien
-        //{
-        //    get
-        //    {
-        //        if (!IsLoading && !IsSaving)
-        //        {
-        //            return VatTus.Sum(i => i.TongTienXuat);
-        //        }
-        //        return 0;
-        //    }
-        //}
+
+        double tongSoTien;
+        [ModelDefault("AllowEdit", "False")]
+        [XafDisplayName("Tổng số tiền")]
+        public double TongSoTien
+        {
+            get
+            {
+                if (!IsLoading && !IsSaving)
+                {
+                    return VatTu_PhieuXuatKhos.Sum(i => i.ThanhTien);
+                }
+                return 0;
+            }
+        }
         Kho kho;
         [XafDisplayName("Kho")]
         [RuleRequiredField("Bắt buộc phải có PhieuXuatKho.Kho", DefaultContexts.Save, "Trường dữ liệu không được để trống")]

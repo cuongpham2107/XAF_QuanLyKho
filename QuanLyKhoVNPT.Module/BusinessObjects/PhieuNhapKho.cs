@@ -82,16 +82,17 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         }
         [XafDisplayName("Tổng số tiền")]
         [ModelDefault("AlowEdit", "False")]
-        public int TongSoTien
+        public double TongSoTien
         {
             get
             {
-                return tongSoTien;
+                if (!IsLoading && !IsSaving)
+                {
+                    return VatTus.Sum(i => i.TongTienNhap);
+                }
+                return 0;
             }
-            set
-            {
-                SetPropertyValue(nameof(TongSoTien), ref tongSoTien, value);
-            }
+            
         }
 
         [XafDisplayName("Ghi chú")]

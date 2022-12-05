@@ -5,13 +5,25 @@ using DevExpress.ExpressApp.Blazor.Templates;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Security.ClientServer;
 using DevExpress.ExpressApp.SystemModule;
+using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Xpo;
 using QuanLyKhoVNPT.Blazor.Server.Services;
+using QuanLyKhoVNPT.Blazor.Server.Templates;
 
 namespace QuanLyKhoVNPT.Blazor.Server;
 
 public class QuanLyKhoVNPTBlazorApplication : BlazorApplication {
+    protected override IFrameTemplate CreateDefaultTemplate(TemplateContext context)
+    {
+
+        if (context == TemplateContext.ApplicationWindow)
+        {
+            return new CustomApplicationWindowTemplate();
+        }
+        return base.CreateDefaultTemplate(context);
+    }
     public QuanLyKhoVNPTBlazorApplication() {
+
         ApplicationName = "QuanLyKhoVNPT";
         CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
         DatabaseVersionMismatch += QuanLyKhoVNPTBlazorApplication_DatabaseVersionMismatch;

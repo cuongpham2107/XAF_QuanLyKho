@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="PhieuXuatKho_VatTus_ListView" AllowNew="True" AllowLink="True" AllowUnlink="True" AllowDelete="True">
+      <Columns Id="Columns">
+        <ColumnInfo Id="SoLuongNhap" Index="-1" />
+        <ColumnInfo Id="SoLuongXuat" Index="3" />
+        <ColumnInfo Id="SoLuongTonKho" Index="4" />
+        <ColumnInfo Id="Gia" Index="5" />
+        <ColumnInfo Id="NhomVatTu" Index="6" />
+        <ColumnInfo Id="Kho" Index="7" />
+        <ColumnInfo Id="MoTa" Index="8" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

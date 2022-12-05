@@ -27,9 +27,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
     [Appearance("Error", BackColor = "Red", FontStyle = System.Drawing.FontStyle.Bold, TargetItems = "*", Criteria = "[SoLuongTonKho] = 0 And [SoLuongNhap] <> 0")]
 
     public class VatTu : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        // Use CodeRush to create XPO classes and properties with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/118557
+    {
         public VatTu(Session session)
             : base(session)
         {
@@ -37,15 +35,13 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
+            
         }
 
+        double tongTienNhap;
         string maVatTu;
-        int tongTienXuat;
-        int tongTienNhap;
         int soLuongTonKho;
-        int soLuongXuat;
-        int gia;
+        double gia;
         string doViTinh;
         string tenVatTu;
         int soLuongNhap;
@@ -55,7 +51,6 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
 
         [XafDisplayName("Mã vật tư")]
         [RuleRequiredField("Bắt buộc phải có VatTu.MaVatTu", DefaultContexts.Save, "Trường dữ liệu không được để trống")]
-        //[Association("MaVatTu-VatTus")]
         public string MaVatTu
         {
             get => maVatTu;
@@ -76,7 +71,6 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(DoViTinh), ref doViTinh, value);
         }
         [XafDisplayName("Số lượng nhập")]
-        [Appearance("HidePhieuNhap", AppearanceItemType.ViewItem, "[PhieuNhapKho] Is Null", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide)]
         public int SoLuongNhap
         {
             get => soLuongNhap;
@@ -86,58 +80,46 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             }
 
         }
-        [XafDisplayName("Số lượng xuất")]
-        [Appearance("HidePhieuXuat", AppearanceItemType.ViewItem, "[PhieuXuatKho] Is Null", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide)]
-        public int SoLuongXuat
-        {
-            get => soLuongXuat;
-            set => SetPropertyValue(nameof(SoLuongXuat), ref soLuongXuat, value);
-        }
         [VisibleInDetailView(false)]
         [XafDisplayName("Số lượng tồn kho")]
         public int SoLuongTonKho
         {
             get
             {
-                return soLuongTonKho;
+                if (!IsLoading && !IsSaving)
+                {
+                    if (VatTu_PhieuXuatKhos != null && SoLuongNhap > 0)
+                    {
+                        return SoLuongNhap - (VatTu_PhieuXuatKhos.Sum(i => i.SoLuong));
+                    }
+
+                }
+                return 0;
             }
-            set { SetPropertyValue(nameof(SoLuongTonKho),ref soLuongTonKho, value); }   
+
         }
         [XafDisplayName("Giá tiền")]
-        public int Gia
+        public double Gia
         {
             get => gia;
             set => SetPropertyValue(nameof(Gia), ref gia, value);
         }
 
-        //[XafDisplayName("Tổng số tiền nhập")]
-        //[VisibleInDetailView(false)]
-        //[VisibleInListView(false)]
-        //public int TongTienNhap
-        //{
-        //    get
-        //    {
-        //        if (!IsSaving && !IsLoading)
-        //        {
-        //            return SoLuongNhap * Gia;
-        //        }
-        //        return 0;
-        //    }
-        //}
-        //[XafDisplayName("Tổng số tiền xuất")]
-        //[VisibleInDetailView(false)]
-        //[VisibleInListView(false)]
-        //public int TongTienXuat
-        //{
-        //    get
-        //    {
-        //        if (!IsSaving && !IsLoading)
-        //        {
-        //            return SoLuongXuat * Gia;
-        //        }
-        //        return 0;
-        //    }
-        //}
+
+        [XafDisplayName("Thành tiền")]
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public double TongTienNhap
+        {
+            get
+            {
+                if(!IsLoading && !IsSaving)
+                {
+                    return Gia * SoLuongNhap;
+                }
+                return 0;
+            }
+        }
 
         [XafDisplayName("Nhóm vật tư")]
         public NhomVatTu NhomVatTu
@@ -155,16 +137,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             get => phieuNhapKho;
             set => SetPropertyValue(nameof(PhieuNhapKho), ref phieuNhapKho, value);
         }
-        //PhieuXuatKho phieuXuatKho;
-        //[XafDisplayName("Phiếu xuất kho")]
-        //[Association("PhieuXuatKho-VatTus")]
-        //[VisibleInDetailView(false)]
-        //[VisibleInListView(false)]
-        //public PhieuXuatKho PhieuXuatKho
-        //{
-        //    get => phieuXuatKho;
-        //    set => SetPropertyValue(nameof(PhieuXuatKho), ref phieuXuatKho, value);
-        //}
+        
         [XafDisplayName("Kho")]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
@@ -176,9 +149,7 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(Kho), ref kho, value);
         }
         [XafDisplayName("Hình ảnh")]
-        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit,
-    DetailViewImageEditorMode = ImageEditorMode.PictureEdit,
-    ListViewImageEditorCustomHeight = 40)]
+        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit,DetailViewImageEditorMode = ImageEditorMode.PictureEdit,ListViewImageEditorCustomHeight = 40)]
         public byte[] HinhAnh
         {
             get => hinhAnh;
@@ -191,6 +162,8 @@ namespace QuanLyKhoVNPT.Module.BusinessObjects
             set => SetPropertyValue(nameof(MoTa), ref moTa, value);
         }
         [XafDisplayName("Phiếu xuất kho")]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
         [Association("VatTu-VatTu_PhieuXuatKhos")]
         public XPCollection<VatTu_PhieuXuatKho> VatTu_PhieuXuatKhos
         {
